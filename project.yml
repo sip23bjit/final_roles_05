@@ -1,0 +1,57 @@
+---
+- name: GIT Installation
+  hosts:
+    - web
+    - db 
+  roles:
+    - git_setup
+
+- name: Web-server Installations
+  hosts: web
+  roles:
+    - web_server_installations
+
+- name: Web-server firewalld
+  hosts: web
+  roles:
+    - firewalld_web
+
+- name: GIT repo clone web-server
+  hosts: web
+  roles:
+    - web_server_gitclone
+
+- name: DB-server Installations
+  hosts: db
+  roles:
+    - db_server_instalations
+
+- name: DB-server firewalld
+  hosts: web
+  roles:
+    - firewalld_db
+
+- name: MySQL Service 
+  hosts: web
+  roles:
+    - mysql_setup
+
+- name: HTTPD Service 
+  hosts: web
+  roles:
+    - httpd_setup
+
+- name: MySQL Service 
+  hosts: web
+  roles:
+    - mysql_setup
+
+- name: GIT repo clone web-server
+  hosts: web
+  roles:
+    - web_server_gitclone
+
+- name: GIT repo clone db-server
+  hosts: db
+  roles:
+    - db_server_gitclone

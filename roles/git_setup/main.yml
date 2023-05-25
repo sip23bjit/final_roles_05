@@ -1,0 +1,6 @@
+- name: Installation Services
+  yum:
+    name:
+      - git
+    state: installed
+  tags: install GIT

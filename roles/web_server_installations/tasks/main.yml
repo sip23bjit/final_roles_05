@@ -1,0 +1,11 @@
+- name: Installation Services
+  yum:
+    name:
+    - libselinux-python
+    - libsemanage-python
+    - httpd
+    - php
+    - php-mysql
+    state: installed
+  tags: install
+
